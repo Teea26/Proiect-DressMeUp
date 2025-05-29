@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Fashion Game</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("fundalprc/background.png") no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      padding: 40px;
+    }
+
+    .side {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .carousel {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .arrow {
+      width: 100px;
+      cursor: pointer;
+    }
+
+    .preview {
+      position: relative;
+    }
+
+    .preview img {
+      width: 120px;
+    }
+
+    .info-box {
+      display: none;
+      position: absolute;
+      bottom: 110%;
+      left: 0;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 5px;
+      border: 1px solid #000;
+      font-size: 14px;
+      width: 150px;
+      z-index: 10;
+    }
+
+    .preview:hover .info-box {
+      display: block;
+    }
+
+    .video-area {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    video {
+      width: 500px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .buttons img {
+      width: 150px;
+      cursor: pointer;
+    }
+
+    #next-button {
+      margin-top: 10px;
+      width: 180px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    #save-msg {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 10px 15px;
+      display: none;
+      font-weight: bold;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Selector haine -->
+  <div class="side" id="selectors">
+    <div class="carousel">
+  <img src="Butoaneprc/left.png" class="arrow" onclick="changeTop(-1)">
+  <div class="preview">
+    <img id="top-img" src="butoanehaine/body.png" onmouseover="showInfo('top')" onmouseout="hideInfo('top')">
+    <div class="info-box" id="info-top"></div>
+  </div>
+  <img src="Butoaneprc/right.png" class="arrow" onclick="changeTop(1)">
+</div>
+
+    <div class="carousel">
+  <img src="Butoaneprc/left.png" class="arrow" onclick="changeBottom(-1)">
+  <div class="preview">
+    <img id="bottom-img" src="butoanehaine/blugialbastrii.png" onmouseover="showInfo('bottom')" onmouseout="hideInfo('bottom')">
+    <div class="info-box" id="info-bottom"></div>
+  </div>
+  <img src="Butoaneprc/right.png" class="arrow" onclick="changeBottom(1)">
+</div>
+
+    <div class="carousel" id="shoes-carousel" style="display: none;">
+  <img src="Butoaneprc/left.png" class="arrow" onclick="changeShoes(-1)">
+  <div class="preview">
+    <img id="shoes-img" src="butoanehaine/pantofigri.png" onmouseover="showInfo('shoes')" onmouseout="hideInfo('shoes')">
+    <div class="info-box" id="info-shoes"></div>
+  </div>
+  <img src="Butoaneprc/right.png" class="arrow" onclick="changeShoes(1)">
+</div>
+
+    <img src="Butoaneprc/next.png" id="next-button" onclick="activateShoes()">
+  </div>
+
+  <div class="video-area">
+    <video id="video" src="video-uri/initialot.MOV" autoplay muted loop></video>
+  </div>
+
+  <div class="buttons">
+    <img src="Butoaneprc/save.png" onclick="saveOutfit()">
+    <img src="Butoaneprc/fullscr.png" onclick="goFullScreen()">
+    <img src="Butoaneprc/restart.png" onclick="restartOutfit()">
+  </div>
+</div>
+
+<div id="save-msg">Ținuta a fost salvată!</div>
+<script src="script.js"></script>
+</body>
+</html>

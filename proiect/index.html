@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Fashion Game - Start</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('fundalprc/principal.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #start-btn {
+      width: 450px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="intro.mp3" type="audio/mpeg">
+    Muzica nu poate fi redată în browserul tău.
+  </audio>
+  <h1 style="
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 72px;
+  font-family: 'Garamond';
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-weight: 900;
+  z-index: 5;
+  margin: 0;
+">
+  Fit meets fabric.
+</h1>
+</div>
+  <img src="Butoaneprc/start.png" id="start-btn" alt="Start" width="750">
+  <script>
+    document.getElementById('start-btn').addEventListener('click', function () {
+      window.location.href = "joc.html"; // pagina principală a jocului
+    });
+  </script>
+</body>
+</html>
